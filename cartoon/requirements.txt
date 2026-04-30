@@ -1,0 +1,14 @@
+# Web Framework
+Flask==3.0.0
+gunicorn==21.2.0
+
+# API Interactions
+gradio_client>=1.7.0
+
+# Image Processing
+Pillow
+
+# Miscellany
+python-dotenv==1.0.0
+werkzeug==3.0.1
+flask-cors==4.0.0

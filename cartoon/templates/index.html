@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartoon GAN Transformer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Advanced Cartoon GAN</h1>
+            <p>Transform your photos using a single model: akhaliq/AnimeGANv2.</p>
+        </header>
+
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>⚙️ Model</h3>
+                    <p><strong>Backend:</strong> Gradio Space</p>
+                    <p><strong>Model:</strong> akhaliq/AnimeGANv2</p>
+                    <p><strong>Style:</strong> Version 2</p>
+                </div>
+
+                <div class="card help-card">
+                    <h3>💡 Pro Tip</h3>
+                    <p>Use clear portrait photos for the best accuracy in cartoon translation.</p>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="card upload-card">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <label for="imageInput" class="upload-label" id="dropZone">
+                        <span class="icon">📁</span>
+                        <span>Click or Drop to Upload Photo</span>
+                    </label>
+                </div>
+
+                <div class="viewer">
+                    <div class="view-box" id="originalBox">
+                        <h4>Original Photo</h4>
+                        <div class="img-preview" id="originalPreview">
+                            <p class="placeholder-text">Waiting for upload...</p>
+                        </div>
+                    </div>
+                    <div class="view-box" id="cartoonBox">
+                        <h4>Cartoon Result</h4>
+                        <div class="img-preview" id="cartoonPreview">
+                            <p class="placeholder-text">Transformation will appear here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="cartoonizeBtn" class="primary-btn" disabled>✨ Cartoonize My Photo</button>
+                    <button id="downloadBtn" class="secondary-btn" style="display: none;">📥 Download Cartoon</button>
+                </div>
+                <div id="resultMeta" class="result-meta" style="display: none;"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="overlay" style="display: none;">
+        <div class="loader"></div>
+        <p>Transforming your image... this may take a moment.</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
